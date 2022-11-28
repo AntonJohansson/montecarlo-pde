@@ -1,0 +1,48 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{physics, amsmath, amssymb, amsthm, mathtools}
+
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{etoolbox}
+
+\def\QED{\hfill$\square$}
+
+\newcommand{\eqv}{\Leftrightarrow}
+\newcommand{\imp}{\Rightarrow}
+\newcommand{\limp}{\Leftarrow}
+\newcommand{\opr}[1]{\hat{#1}}
+\newcommand{\lpoly}[2]{\ell_{#1}^{(#2)}}
+\newcommand{\End}{\mathrm{End}\,}
+\newcommand{\Span}{\mathrm{span}\,}
+\newcommand{\dc}[1]{\mathrm{<}#1\mathrm{>}}
+
+\theoremstyle{theorem}
+\newtheorem{theorem}{Thm}[section]
+
+\newtheoremstyle{Def}{1em}{1em}{}{}{\bfseries}{.}{.5em}{}
+\theoremstyle{Def}
+\newtheorem{Def}{Def}[section]
+
+\theoremstyle{Def}
+\newtheorem{Ex}{Ex}[section]
+
+\theoremstyle{corollary}
+\newtheorem{corollary}{Cor}[theorem]
+\theoremstyle{lemma}
+\newtheorem{lemma}{Lem}[theorem]
+\theoremstyle{remark}
+\newtheorem*{remark}{Rem}
+
+\begin{document}
+\section{Monte-Carlo Approximator}
+If $f: \Omega \to \mathbb R$ then
+\begin{align*}
+    \opr I := \int_\Omega\dd x\bra x
+\end{align*}
+can be approximated via
+\begin{align*}
+    \opr I_n := \frac{|\Omega|}{n}\sum_{i=1}^n\bra{X_i}\qc X_i \in U(\Omega)
+\end{align*}
+then $\lim_{n\to\infty}\opr I_n \ket f = \opr I\ket f$, with an error which scales as$\order{1/\sqrt n}$. The approximator is also unbiased meaning $\mathbb E [\opr I_n\ket f] = \opr I\ket f$, for any $n$.
+\end{document}
